@@ -1,0 +1,11 @@
+{
+  "name": "tripguru-dev-team",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "aglio": "*"
+  },
+  "author": "The Trip Guru",
+  "license": "Apache-2.0"
+}

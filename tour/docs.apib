@@ -1,0 +1,80 @@
+# Data Structures
+
+## Tours
++ data
+  + id: `6dee2759-94cd-41b7-b973-ea192274b86e` (string) - Id of the tour
+  * type: `tours` (string, required) - resource type
+  + attributes
+      + title: `One day in the beach` (string, required) - Title of the Tour.
+      + summary: `Summary of the tour` (string, required) - A small description of the tour.
+      + url: `one-day-in-the-beach-bali` (string, required) - Slug url of the item.
+      + description: `Description of the tour` (string, required) - Description of the tour.
+      + location: `location Object` (object, required) - An object containing all the information about the location of the tour.
+      + media: `media Object` (object) - A list of media content related with the tour.
+      + merchant: `merchant Object` (object) - All the information needed for the merchant related with the tour.
+      + duration_type: `Whole day` (string)  - How long the tour is going to be.
+      + meeting_point: `hotel pickup` (object) - List of places for the meeting point.
+      + active: `true` (boolean) - Is the item active by the merchant?
+      + is_live: `true` (boolean) - Is the item approved for The Trip Guru Admin?
+      + groups_enable: `true` (boolean)  - Are we able to create groups for this tour or just sell it privately?.
+      + confirmation: `Instant Confirmation` (string) - Type of confirmation, nowadays we support 2 types,Instant or Manual.
+      + validations: `Validation Object` (object) - List of concern before checkout to validate.
+      + recommendations: `This package is for energetic travelers` (string) - Who can do this trip and some tips about it
+      + seo: `SEO Object` (object) - Important data for the SEO configuration of the tour,
+      + in_the_tour: `string`
+      + target: `type of people for this tour` (string),
+      + itinerary:
+      + highlights:
+      + activity_deals:
+      + what_to_bring:
+      + tags:
+      + discounts:
+      + expertise:
+      + bookings:
+      + events:
+      + reviews:
+      + rating: `4.625` (string) - Global Rating of the tour,
+      + price: `Price Object` (object) - Prices related with the tour
++ links
+    * self: `/tours/6dee2759-94cd-41b7-b973-ea192274b86e/`
+
+# Group Tours
+
+## tours [/tours/{id}/]
++ Request (application/vnd.api+json)
+  + Headers
+    Authorization: "JWT_from_Auth0"
+    Content-Type: `application/vnd.api+json`
+
+### get one [GET]
++ Parameters
+    + id (string) - Id of the tour
++ Response 200 (application/vnd.api+json)
+    + Attributes (Tours)
++ Response 400
++ Response 401
+    * Attributes (401Response)
++ Response 404
+
+### get information about the route [OPTIONS]
+Return information about the usage of this route. Lists: avaiable methods, query and route parameters.
++ Response 200 (application/json)
+
++ Parameters
+    + id (string) - Id of the tour
+
+### get a list [GET /tours/{?filter,limit,offset,sort}]
++ Parameters
+    + filter: `[field]=value` (string, optional) - filter results by value on a specific field
+    + limit: `limit=1` (integer) - amount if item to show in the results
+    + offset: `offset=1` (integer) - page number
+    + sort: `-title` (string, optional) - sort by fieldname. Multiple fieldnames can be used. Prefixing a fieldname with `-` reverses the sort order.
++ Response 200 (application/vnd.api+json)
+    + Attributes
+        * data (array[Tours])
+        * meta
+            - pagination (Pagination)
++ Response 204
++ Response 401
+    * Attributes (401Response)
++ Response 404

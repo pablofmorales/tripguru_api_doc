@@ -1,0 +1,17 @@
+# Data Structures
+## Pagination
++ total: 68 (number) - total count of resources available for fetching
++ count: 68 (number)
++ per_page: 20 (number) - number of items per page
++ current_page: 1 (number) - number of the currently fetched page
++ total_pages: 7 (number) - number of pages assuming constant `page[limit]` parameter value
++ links
+    + next: `/{resource_type}/?page[number]=2` (string)
+
+## 401Response
++ errors
+    * status: 401 (number) - HTTP status code
+    * title: `Unauthorised` (string) - Reason
+    * meta
+        - time: `2016-11-09T12:00:31+00:00` (string) - date, time and timezone when the error was registered
+    * detail: `"Error while decoding JWT: Cannot handle token prior to 2016-11-09T12:32:01+0000"` (string) - Additional information

@@ -1,0 +1,2 @@
+#!/bin/bash
+aglio -i docs.apib -o ./generated_docs/index.html --theme-template triple --theme-variables flatly
