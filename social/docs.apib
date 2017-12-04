@@ -1,0 +1,62 @@
+# Data Structures
+
+## Profiles
++ data
+  + id: `6dee2759-94cd-41b7-b973-ea192274b86e` (string) - Id of the Profile
+  * type: `profiles` (string, required) - resource type
+  + attributes
+      + backend_id: `33` (string, required) - Valid Id from old platform
+      + email: `juan@gmail.com` (string, required) - Valid email
+      + full_name: `Juan Carlos Badia` (string, required) - Full Name of the user.
+      + birthdate `1985/04/12`  - Birthdate of the user
+      + image `image/lllll.jpg` (string) - Image profile of the user can be from social networks or Trip Guru
+      + facebook `true|false` - if the user is using facebook as login
+      + age `32` - How old the user is
+      + status (string, required) - if the user is enable, or disabled
+      + last_location_tracked (array) - Last location where the user was logged in
+      + media: `media Object` (object) - A list of media content related with the user.
+      + reviews: `review Object` (object) - A list of reviews content related with the user.
+      + bookings: `bookings Object` (object) - A list of bookings content related with the user.
++ links
+    * self: `/profiles/6dee2759-94cd-41b7-b973-ea192274b86e`
+
+# Group Profiles
+
+## profiles [/profiles/{id}/]
++ Request (application/vnd.api+json)
+  + Headers
+    Authorization: "JWT_from_Auth0"
+    Content-Type: `application/vnd.api+json`
+
+### get one [GET]
++ Parameters
+    + id (string) - Id of the profile
++ Response 200 (application/vnd.api+json)
+    + Attributes (Profiles)
++ Response 400
++ Response 401
+    * Attributes (401Response)
++ Response 404
+
+### get information about the route [OPTIONS]
+Return information about the usage of this route. Lists: avaiable methods, query and route parameters.
++ Response 200 (application/json)
+
++ Parameters
+    + id (string) - Id of the profile
+
+### get a list [GET /profiles/{?filter,limit,offset,sort}]
++ Parameters
+    + filter: `[field]=value` (string, optional) - filter results by value on a specific field
+    + limit: `limit=1` (integer) - amount if item to show in the results
+    + offset: `offset=1` (integer) - page number
+    + sort: `-title` (string, optional) - sort by fieldname. Multiple fieldnames can be used. Prefixing a fieldname with `-` reverses the sort order.
++ Response 200 (application/vnd.api+json)
+    + Attributes
+        * data (array[Profiles])
+        * meta
+            - pagination (Pagination)
++ Response 204
++ Response 401
+    * Attributes (401Response)
++ Response 404
